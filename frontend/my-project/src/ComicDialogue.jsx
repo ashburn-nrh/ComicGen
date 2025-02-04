@@ -22,7 +22,7 @@ const ComicDialogue = () => {
       const response = await axios.post('http://127.0.0.1:8000/generate-comic-dialogue', {
         story_prompt: updatedStoryPrompt
       });
-      setDialogue(response.data.dialogue.split('\n\n').slice(0, 6)); 
+      setDialogue(response.data.dialogue.split('\n\n').slice(0, 6)); // Ensure only 3 sets are considered
     } catch (err) {
       setError('Error generating dialogue');
     } finally {
@@ -32,7 +32,7 @@ const ComicDialogue = () => {
 
   const downloadPDF = (text, index) => {
     const doc = new jsPDF();
-    const lines = text.split('\n').slice(0, 6).join('\n'); 
+    const lines = text.split('\n').slice(0, 6).join('\n'); // Ensure only the dialogue is included
     doc.text(lines, 10, 10);
     doc.save(`Dialogue_Set_${index + 1}.pdf`);
   };

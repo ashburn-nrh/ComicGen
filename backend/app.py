@@ -5,7 +5,7 @@ import google.generativeai as genai
 from typing import Dict
 
 
-genai.configure(api_key="AIzaSyC5tFI_TwCtBQqRZykbWlbE6JZfsq_1-GM")
+genai.configure(api_key="your-api-key")
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 app = FastAPI()
